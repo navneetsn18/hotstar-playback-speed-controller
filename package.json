@@ -1,0 +1,10 @@
+{
+  "name": "hotstar-playback-speed-controller",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome Manifest V3 extension for YouTube-style playback speed controls on Hotstar and JioHotstar.",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  }
+}
+

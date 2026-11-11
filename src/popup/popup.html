@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotstar Playback Speed</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <img src="../../assets/icons/icon32.png" alt="Hotstar Speed" class="brand-icon" />
+        <div class="brand-text">
+          <h1>Hotstar Speed</h1>
+          <span id="status-badge" class="status-badge">Checking tab...</span>
+        </div>
+      </div>
+      <label class="switch" title="Enable or disable extension">
+        <input type="checkbox" id="toggle-enabled" />
+        <span class="slider-track"></span>
+      </label>
+    </header>
+
+    <main id="main-content" class="main">
+      <section class="card speed-card">
+        <div class="speed-top">
+          <button type="button" id="btn-decrease" class="step-btn" title="Decrease speed" aria-label="Decrease speed">−</button>
+          <div class="speed-readout">
+            <span id="speed-value" class="speed-value">1.0x</span>
+            <button type="button" id="btn-reset" class="reset-btn" title="Reset to 1.0x">Reset 1.0x</button>
+          </div>
+          <button type="button" id="btn-increase" class="step-btn" title="Increase speed" aria-label="Increase speed">+</button>
+        </div>
+
+        <div class="range-wrap">
+          <input type="range" id="speed-slider" min="0.25" max="4" step="0.05" value="1" aria-label="Playback speed slider" />
+          <div class="range-ticks">
+            <span>0.25x</span>
+            <span>1.0x</span>
+            <span>2.0x</span>
+            <span>3.0x</span>
+            <span>4.0x</span>
+          </div>
+        </div>
+
+        <div id="presets-grid" class="presets-grid" role="group" aria-label="Speed presets"></div>
+      </section>
+
+      <section class="card settings-card">
+        <button type="button" id="settings-toggle" class="settings-header" aria-expanded="false">
+          <span>Preferences &amp; Shortcuts</span>
+          <span class="chevron" aria-hidden="true">▾</span>
+        </button>
+
+        <div id="settings-body" class="settings-body is-collapsed">
+          <div class="field-row">
+            <label for="select-step">Step Size</label>
+            <select id="select-step">
+              <option value="0.05">0.05x</option>
+              <option value="0.1">0.1x</option>
+              <option value="0.25">0.25x</option>
+              <option value="0.5">0.5x</option>
+            </select>
+          </div>
+
+          <div class="field-row">
+            <label for="select-corner">Overlay Corner</label>
+            <select id="select-corner">
+              <option value="top-right">Top Right</option>
+              <option value="top-left">Top Left</option>
+              <option value="bottom-right">Bottom Right</option>
+              <option value="bottom-left">Bottom Left</option>
+            </select>
+          </div>
+
+          <div class="toggle-list">
+            <label class="toggle-row">
+              <span>Show on-player controls</span>
+              <input type="checkbox" id="chk-overlay" />
+            </label>
+            <label class="toggle-row">
+              <span>Auto-hide player controls</span>
+              <input type="checkbox" id="chk-autohide" />
+            </label>
+            <label class="toggle-row">
+              <span>Show speed toast HUD</span>
+              <input type="checkbox" id="chk-toast" />
+            </label>
+            <label class="toggle-row">
+              <span>Remember speed across videos</span>
+              <input type="checkbox" id="chk-remember" />
+            </label>
+            <label class="toggle-row">
+              <span>Preserve audio pitch</span>
+              <input type="checkbox" id="chk-pitch" />
+            </label>
+            <label class="toggle-row">
+              <span>Keyboard shortcuts</span>
+              <input type="checkbox" id="chk-shortcuts" />
+            </label>
+            <label class="toggle-row">
+              <span>YouTube keys (Shift + &lt; / &gt;)</span>
+              <input type="checkbox" id="chk-yt-shortcuts" />
+            </label>
+          </div>
+
+          <div class="shortcuts-box">
+            <div class="shortcuts-title">Custom Hotkeys (click to rebind)</div>
+            <div class="shortcut-row">
+              <span>Decrease speed</span>
+              <button type="button" class="key-btn" data-key-field="decreaseKey" id="key-decrease">[</button>
+            </div>
+            <div class="shortcut-row">
+              <span>Increase speed</span>
+              <button type="button" class="key-btn" data-key-field="increaseKey" id="key-increase">]</button>
+            </div>
+            <div class="shortcut-row">
+              <span>Reset / Toggle 1.0x</span>
+              <button type="button" class="key-btn" data-key-field="resetKey" id="key-reset">\</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../shared/constants.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
+

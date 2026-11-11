@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Hotstar Playback Speed Controller",
+  "short_name": "Hotstar Speed",
+  "version": "1.0.0",
+  "description": "YouTube-style playback speed controls, presets, keyboard shortcuts, and persistent speed enforcement for Hotstar & JioHotstar.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "Hotstar Playback Speed",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.hotstar.com/*",
+        "https://*.jiohotstar.com/*"
+      ],
+      "js": [
+        "src/shared/constants.js",
+        "src/content/speed-engine.js",
+        "src/content/player-ui.js",
+        "src/content/content.js"
+      ],
+      "css": [
+        "src/content/overlay.css"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
+

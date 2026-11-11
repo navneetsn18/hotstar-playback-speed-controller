@@ -1,0 +1,11 @@
+#hotstar-speed-controller-host {
+  all: initial;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 2147483647 !important;
+  pointer-events: none !important;
+  display: block;
+}
